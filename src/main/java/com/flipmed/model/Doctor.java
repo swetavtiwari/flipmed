@@ -1,14 +1,20 @@
 package com.flipmed.model;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Doctor {
     UUID id;
     String name;
     Specialization specialization;
-    List<Slot> availableSlots;
+    Set<Slot> availableSlots;
     int rating;
+
+    public Doctor(String name, Specialization specialization) {
+        this.id = UUID.randomUUID();
+        this.name = name;
+        this.specialization = specialization;
+        this.availableSlots = new HashSet<>();
+    }
 
     public UUID getId(){
         return this.id;
@@ -22,14 +28,12 @@ public class Doctor {
         return this.specialization;
     }
 
-    public List<Slot> getAvailableSlots(){
+    public Set<Slot> getAvailableSlots(){
         return this.availableSlots;
     }
 
-    public Doctor(String name, Specialization specialization) {
-        this.id = UUID.randomUUID();
-        this.name = name;
-        this.specialization = specialization;
+    public boolean addAvailableSlots(Slot slot) {
+       return availableSlots.add(slot);
     }
 
     @Override
