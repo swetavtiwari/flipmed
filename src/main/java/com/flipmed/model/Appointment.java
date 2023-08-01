@@ -1,8 +1,11 @@
+package com.flipmed.model;
+
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Appointment {
 
-    int id;
+    UUID id;
     Doctor doctor;
     Patient patient;
     AppointmentStatus status;

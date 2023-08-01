@@ -1,12 +1,16 @@
+package com.flipmed.model;
+
 public enum AppointmentStatus {
-    
+
    SCHEDULED("Scheduled"),
    IN_PROGRESS("In Progres"),
-   COMPLETED("Completed");
+   COMPLETED("Completed"),
+   CANCELED("Canceled"),
+   ON_HOLD("On Hold");
 
-    String name;
+    final String name;
 
-     Specialization(String name){
+    AppointmentStatus(String name){
         this.name = name;
      }
 }
