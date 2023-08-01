@@ -1,8 +1,8 @@
 public enum AppointmentStatus {
     
-   SCHEDULED,
-   IN_PROGRESS,
-   COMPLETED;
+   SCHEDULED("Scheduled"),
+   IN_PROGRESS("In Progres"),
+   COMPLETED("Completed");
 
     String name;
 

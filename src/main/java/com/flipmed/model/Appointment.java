@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Appointment {
 
     int id;
@@ -5,13 +7,6 @@ public class Appointment {
     Patient patient;
     AppointmentStatus status;
     String prescriptionNotes;
-
-    @Override
-    public boolean equals(Object other){
-        if( !(other instanceof Doctor)){
-            return false;
-        }
-        return this.id == other.id;
-    }
-    
+    LocalDate date;
+    Slot timeSlot;
 }

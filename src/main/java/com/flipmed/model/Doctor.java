@@ -5,4 +5,12 @@ public class Doctor {
     String name;
     Specialization Specialization;
     int rating;
+
+    @Override
+    public boolean equals(Object other) {
+        if( !(other instanceof Doctor)){
+            return false;
+        }
+        return this.id == other.id;
+    } 
 }
