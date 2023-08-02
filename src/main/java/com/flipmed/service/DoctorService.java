@@ -31,4 +31,8 @@ public class DoctorService {
         }
         return doctor.addAvailableSlots(slot);
     }
+
+    public void removeSlot(Doctor doctor, Slot slot) {
+        doctor.getAvailableSlots().remove(slot);
+    }
 }

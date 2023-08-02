@@ -12,6 +12,10 @@ public class Slot {
         this.endTime = endTime;
     }
 
+    public LocalDateTime getStartTime(){
+        return this.startTime;
+    }
+
     public boolean isValid() {
         return startTime.getHour() >= 9
             && endTime.getHour() <= 21
