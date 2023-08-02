@@ -32,6 +32,10 @@ public class Doctor {
         return this.availableSlots;
     }
 
+    public void setAvailableSlots(Set<Slot> slots) {
+        availableSlots = slots;
+    }
+
     public boolean addAvailableSlots(Slot slot) {
        return availableSlots.add(slot);
     }

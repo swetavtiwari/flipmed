@@ -18,9 +18,11 @@ public class PatientService {
         return allPatients;
     }
 
-    public boolean register(String name) {
+    public Patient register(String name) {
         Patient patient = new Patient(name);
-        return allPatients.add(patient);
+        System.out.printf("Welcome %s . Your id is %s \n", patient.getName(), patient.getId());
+        allPatients.add(patient);
+        return patient;
     }
 
     public boolean bookAppointment(Patient patient, Appointment appointment){
