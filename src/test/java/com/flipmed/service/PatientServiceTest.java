@@ -12,9 +12,8 @@ public class PatientServiceTest {
         PatientService patientService = new PatientService();
         assertEquals(0, patientService.getAllPatients().size());
 
-        boolean registered = patientService.register("Curious");
+        patientService.register("Curious");
 
-        assertTrue(registered);
         assertEquals(1, patientService.getAllPatients().size());
         assertEquals("Curious", patientService.getAllPatients().get(0).getName());
     }
