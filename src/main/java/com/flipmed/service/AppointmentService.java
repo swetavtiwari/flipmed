@@ -34,7 +34,7 @@ public class AppointmentService {
         }
         Appointment appointment = createAppointment(doctor, patient, slot);
         if (appointmentAlreadyScheduledForDoctor(doctor, slot)) {
-            System.out.printf("\nAdding %s to waitlist for %s  %s", patient.getName(), doctor.getName(), slot);
+            System.out.printf("Adding %s to waitlist for %s  %s\n", patient.getName(), doctor.getName(), slot);
             appointment.markOnHold();
             return appointment;
         }
@@ -51,7 +51,7 @@ public class AppointmentService {
         optionalAppointment.ifPresentOrElse(appointment -> {
                 doctorService.addSlot(appointment.getDoctor(), appointment.getTimeSlot());
                 appointment.cancel();
-                System.out.println("Appointment Cancelled");
+                System.out.printf("\nAppointment %s Cancelled", appointmentId);
                 bookAppointmentFromWaitList(appointment.getDoctor(), appointment.getTimeSlot());
             }, () -> System.out.println("Appointment does not exist")
         );
@@ -67,7 +67,7 @@ public class AppointmentService {
 
         waitlistedAppointment.ifPresent(appointment -> {
             appointment.markScheduled();
-            System.out.printf("\nAppointment Confirmed for id %s", appointment.getId());
+            System.out.printf("Appointment Confirmed for id %s \n", appointment.getId());
             doctorService.removeSlot(doctor, slot);
         });
     }
@@ -76,9 +76,8 @@ public class AppointmentService {
          appointments.stream()
             .filter(appointment -> appointment.getPatient().equals(patient))
             .filter(Appointment::isScheduled)
-             .forEach(appointment -> System.out.printf("\n Appointment id: %s  %s , %s:%s",
-                 appointment.getId(), appointment.getDoctor().getName(),
-                 appointment.getTimeSlot().getStartTime().getHour(), appointment.getTimeSlot().getStartTime().getMinute()));
+             .forEach(appointment -> System.out.printf("Appointment id: %s  %s , %s\n",
+                 appointment.getId(), appointment.getDoctor().getName(), appointment.getTimeSlot()));
     }
 
     private static boolean doctorHasSlotAvailable(Doctor doctor, Slot slot) {

@@ -56,9 +56,7 @@ public class DoctorService {
         doctor.getAvailableSlots().stream()
             .sorted(Comparator.comparing(Slot::getStartTime))
             .forEach(slot ->
-                System.out.printf("%s  (%s:%s , %s:%s) \n", doctor.getName(),
-                    slot.getStartTime().getHour(), slot.getStartTime().getMinute(),
-                    slot.getEndTime().getHour(), slot.getEndTime().getMinute()));
+                System.out.printf("%s  %s \n", doctor.getName(), slot));
 
 
     }
